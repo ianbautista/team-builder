@@ -10,6 +10,12 @@ const initialValues = {
 function App() {
 	const [members, setMembers] = useState([]);
 	const [values, setValues] = useState(initialValues);
+
+	const formUpdater = (inputName, inputValue) => {
+		const updatedValues = { ...values, [inputName]: inputValue };
+		setValues(updatedValues);
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
