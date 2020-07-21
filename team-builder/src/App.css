@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box !important;
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +40,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.formDiv {
+  display: flex;
+  /* background-color: white; */
+  /* box-shadow: grey black; */
+  margin: 0 auto;
+  width: 500px;
+  height: 200px;
+  align-items: center;
+  border-radius: 10px;
+  /* border: 1px solid rgb(226, 223, 223) */
+
+}
+.formCard {
+  display: block;
+  margin: 0 auto;
+  font-size: 3rem;
+  color: white;
+  padding: 30px;
+  /* border: 2px solid red; */
+}
+
+
+.container {
+
+}
+
+input {
+  border-radius: 5px;
+  height: 3.5rem;
 }
