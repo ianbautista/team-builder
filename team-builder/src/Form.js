@@ -13,7 +13,7 @@ export default function Form() {
 						placeholder="Enter name here"
 						maxLength="40"
 					/>
-				</label>{" "}
+				</label>
 				<br />
 				<label htmlFor="emailInput">
 					Email:&nbsp;&nbsp;
@@ -25,6 +25,17 @@ export default function Form() {
 						maxLength="50"
 					/>
 				</label>
+				<br />
+				<select name="role">
+					<option disabled value="">
+						select
+					</option>
+					<option value="designer">Designer</option>
+					<option value="juniorFrontEnd">Junior Front-End</option>
+					<option value="seniorFrontEnd">Senior Front-End</option>
+					<option value="backEndEngineer">Back-End Engineer</option>
+					<option value="projectManager">Project Manager</option>
+				</select>
 				<br />
 				<button>Add</button>
 			</form>

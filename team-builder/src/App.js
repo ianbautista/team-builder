@@ -5,6 +5,7 @@ import Form from "./Form";
 const initialValues = {
 	name: "",
 	email: "",
+	role: "",
 };
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 		const newMember = {
 			name: values.name.trim(),
 			email: values.email.trim(),
+			role: values.role,
 		};
 		if (!newMember.name || !newMember.email) return null;
 	};
@@ -27,9 +29,9 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<h1> Member List</h1>
+				<h1>Member List</h1>
 				<div className="container">
-					<Form />
+					<Form values={values} formUpdater={formUpdater} addMember={addMember} />
 				</div>
 			</header>
 		</div>
