@@ -16,6 +16,14 @@ function App() {
 		setValues(updatedValues);
 	};
 
+	const addMember = () => {
+		const newMember = {
+			name: values.name.trim(),
+			email: values.email.trim(),
+		};
+		if (!newMember.name || !newMember.email) return null;
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
