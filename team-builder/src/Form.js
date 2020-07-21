@@ -11,7 +11,7 @@ export default function Form() {
 						name="name"
 						type="text"
 						placeholder="Enter name here"
-						MaxLength="40"
+						maxLength="40"
 					/>
 				</label>{" "}
 				<br />
@@ -22,7 +22,7 @@ export default function Form() {
 						name="email"
 						type="email"
 						placeholder="e.g. email@domain.com"
-						MaxLength="50"
+						maxLength="50"
 					/>
 				</label>
 				<br />
