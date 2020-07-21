@@ -19,7 +19,7 @@
 }
 
 .App-header {
-  background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -71,4 +71,14 @@
 input {
   border-radius: 5px;
   height: 3.5rem;
+  border: unset;
+}
+
+button{
+  width: 215px;
+  border-radius: 5px;
+  background-color: #f83600;
+  color: white;
+  border: unset;
+  padding: 5px;
 }

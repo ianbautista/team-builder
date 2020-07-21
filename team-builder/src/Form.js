@@ -4,15 +4,29 @@ export default function Form() {
 	return (
 		<div className="formDiv">
 			<form className="formCard">
-				<label name="">
+				<label htmlFor="name">
 					Name:&nbsp;
-					<input />
+					<input
+						id="nameInput"
+						name="name"
+						type="text"
+						placeholder="Enter name here"
+						MaxLength="40"
+					/>
 				</label>{" "}
 				<br />
-				<label name="">
-					Email:&nbsp;
-					<input />
+				<label htmlFor="emailInput">
+					Email:&nbsp;&nbsp;
+					<input
+						id="emailInput"
+						name="email"
+						type="email"
+						placeholder="e.g. email@domain.com"
+						MaxLength="50"
+					/>
 				</label>
+				<br />
+				<button>Add</button>
 			</form>
 		</div>
 	);
