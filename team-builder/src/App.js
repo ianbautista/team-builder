@@ -1,16 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./Form";
+import Member from "./Member";
+import { v4 as uuid } from "uuid";
 
 const initialValues = {
+	id: uuid(),
 	name: "",
 	email: "",
-	role: "",
+	role: "select",
 };
+
+const fakeAxiosGet = () => {
+	return Promise.resolve({ status: 200, success: true, data: initialMemberList });
+};
+const fakeAxiosPost = (url, { name, email, role }) => {
+	const newFriend = { id: uuid(), name, email, role };
+	return Promise.resolve({ status: 200, success: true, data: newFriend });
+};
+
+const initialMemberList = [
+	{
+		id: uuid(),
+		name: "Christian",
+		email: "christian@lambda.com",
+		role: "Junior Front-End",
+	},
+];
 
 function App() {
 	const [members, setMembers] = useState([]);
 	const [values, setValues] = useState(initialValues);
+
+	useEffect(() => {
+		fakeAxiosGet("fakeapi.com").then((res) => setMembers(res.data));
+	}, []);
 
 	const formUpdater = (inputName, inputValue) => {
 		const updatedValues = { ...values, [inputName]: inputValue };
@@ -23,7 +47,13 @@ function App() {
 			email: values.email.trim(),
 			role: values.role,
 		};
-		if (!newMember.name || !newMember.email) return null;
+		if (!newMember.name || !newMember.email || !newMember.role) return;
+
+		fakeAxiosPost("fakeapi.com", newMember).then((response) => {
+			const memberFromAPI = response.data;
+			setMembers([memberFromAPI, ...members]);
+			setValues(initialValues);
+		});
 	};
 
 	return (
@@ -32,6 +62,9 @@ function App() {
 				<h1>Member List</h1>
 				<div className="container">
 					<Form values={values} formUpdater={formUpdater} addMember={addMember} />
+					{members.map((member) => {
+						return <Member member={member} />;
+					})}
 				</div>
 			</header>
 		</div>

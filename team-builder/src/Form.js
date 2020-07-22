@@ -1,9 +1,22 @@
 import React from "react";
 
-export default function Form() {
+export default function Form(props) {
+	const { values, formUpdater, addMember } = props;
+
+	const formUpdate = (evt) => {
+		const name = evt.target.name;
+		const value = evt.target.value;
+
+		formUpdater(name, value);
+	};
+
+	const formSubmit = (evt) => {
+		evt.preventDefault();
+		addMember();
+	};
 	return (
 		<div className="formDiv">
-			<form className="formCard">
+			<form className="formCard" onSubmit={formSubmit}>
 				<label htmlFor="name">
 					Name:&nbsp;
 					<input
@@ -12,6 +25,8 @@ export default function Form() {
 						type="text"
 						placeholder="Enter name here"
 						maxLength="40"
+						onChange={formUpdate}
+						values={values.name}
 					/>
 				</label>
 				<br />
@@ -23,10 +38,12 @@ export default function Form() {
 						type="email"
 						placeholder="e.g. email@domain.com"
 						maxLength="50"
+						onChange={formUpdate}
+						values={values.email}
 					/>
 				</label>
 				<br />
-				<select name="role">
+				<select name="role" onChange={formUpdate}>
 					<option disabled value="">
 						select
 					</option>
