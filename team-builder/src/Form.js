@@ -43,15 +43,15 @@ export default function Form(props) {
 					/>
 				</label>
 				<br />
-				<select name="role" onChange={formUpdate}>
-					<option disabled value="">
+				<select className="decorated" name="role" onChange={formUpdate}>
+					<option disabled value="" selected>
 						select
 					</option>
-					<option value="designer">Designer</option>
-					<option value="juniorFrontEnd">Junior Front-End</option>
-					<option value="seniorFrontEnd">Senior Front-End</option>
-					<option value="backEndEngineer">Back-End Engineer</option>
-					<option value="projectManager">Project Manager</option>
+					<option value="Designer">Designer</option>
+					<option value="Junior Front-End">Junior Front-End</option>
+					<option value="Senior Front-End">Senior Front-End</option>
+					<option value="Back-End Engineer">Back-End Engineer</option>
+					<option value="Project Manager">Project Manager</option>
 				</select>
 				<br />
 				<button>Add</button>

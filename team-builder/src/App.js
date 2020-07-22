@@ -15,8 +15,8 @@ const fakeAxiosGet = () => {
 	return Promise.resolve({ status: 200, success: true, data: initialMemberList });
 };
 const fakeAxiosPost = (url, { name, email, role }) => {
-	const newFriend = { id: uuid(), name, email, role };
-	return Promise.resolve({ status: 200, success: true, data: newFriend });
+	const newMember = { id: uuid(), name, email, role };
+	return Promise.resolve({ status: 200, success: true, data: newMember });
 };
 
 const initialMemberList = [
@@ -33,7 +33,7 @@ function App() {
 	const [values, setValues] = useState(initialValues);
 
 	useEffect(() => {
-		fakeAxiosGet("fakeapi.com").then((res) => setMembers(res.data));
+		fakeAxiosGet("fakeapi.com").then((response) => setMembers(response.data));
 	}, []);
 
 	const formUpdater = (inputName, inputValue) => {
@@ -63,7 +63,7 @@ function App() {
 				<div className="container">
 					<Form values={values} formUpdater={formUpdater} addMember={addMember} />
 					{members.map((member) => {
-						return <Member member={member} />;
+						return <Member key={member.id} member={member} />;
 					})}
 				</div>
 			</header>
